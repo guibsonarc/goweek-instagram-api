@@ -8,12 +8,9 @@ const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
-mongoose.connect(
-  "mongodb://admin:12345admin@ds137827.mlab.com:37827/goweek-7",
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect("mongodb://localhost:27017/instarocket", {
+  useNewUrlParser: true
+});
 
 app.use((req, res, next) => {
   req.io = io;
